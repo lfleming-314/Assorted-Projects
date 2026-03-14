@@ -2,7 +2,7 @@
 Small Codecademy projects to learn and practice new skills.
 
 ## Python
-This folder currently contains a Jupyter notebook containing some practice projects with strings and dictionaries.
+This folder currently contains Jupyter notebooks containing some practice projects with strings and dictionaries, as well as some data summarization of a US Medical Insurance dataset.
 
 ## C++
 This folder currently contains the start of a text adventure based on the Stormlight Archives series by Brandon Sanderson.
