@@ -1,0 +1,13 @@
+void nameSpren();
+void findPool();
+void investigatePool();
+void collectFiremark();
+void toRockpile();
+void collectMoreRocks();
+void tooManyRocks();
+void findBoxing();
+void findBoxingOrSkymark();
+void findSkymark();
+void acquireBoxing();
+void acquireSkymark();
+void advancePath();

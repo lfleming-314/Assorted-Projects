@@ -25,3 +25,13 @@ int input (int max, std::string prompt) {
   }
   return choice;
 }
+
+string stringInput() {
+  cout << ">";
+  string response;
+  cin >> response;
+  if (response == "0") {
+    exit(0);
+  }
+  return response;
+}

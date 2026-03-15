@@ -1,7 +1,7 @@
 NAME		:= adventure
-SRCS		:= main.cpp leftPath.cpp rightPath.cpp inputProcessing.cpp underConstruction.cpp
-OBJS		:= main.o leftPath.o rightPath.o inputProcessing.o underConstruction.o
-CXX			:= g++
+SRCS		:= main.cpp gamestate.cpp firstSegment.cpp inputProcessing.cpp underConstruction.cpp 
+OBJS		:= main.o gamestate.o firstSegment.o inputProcessing.o underConstruction.o
+CXX			:= g++ -std=c++17
 CXXFLAGS	:= -Wall -Wextra -Werror
 CPPFLAGS	:= -I .
 RM			:= rm -f
