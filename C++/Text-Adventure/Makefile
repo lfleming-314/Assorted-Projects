@@ -1,5 +1,11 @@
 NAME		:= adventure
-SRCS		:= main.cpp gamestate.cpp firstSegment.cpp inputProcessing.cpp underConstruction.cpp 
+SRCS		:= main.cpp \
+gamestate.cpp \
+firstSegment.cpp \
+inputProcessing.cpp \
+leftPath.cpp \
+rightPath.cpp \
+underConstruction.cpp
 OBJS		:= $(SRCS:.cpp=.o)
 CXX			:= g++ -std=c++17
 CXXFLAGS	:= -Wall -Wextra -Werror

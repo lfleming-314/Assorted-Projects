@@ -24,6 +24,10 @@ array<string, 2> GameState::getSurges() { return this->surges;}
 
 string GameState::getSprenType() {return this->spren_type;}
 void GameState::setSprenName(string name) {this->spren_name = name;}
+string GameState::getSprenName() {return this->spren_name;}
+
+void GameState::setCulture(string culture) {this->culture = culture;}
+string GameState::getCulture() {return this->culture;}
 
 int GameState::getNumCharges() {return this->num_charges;}
 void GameState::incrementCharges() {this->num_charges += 1;}

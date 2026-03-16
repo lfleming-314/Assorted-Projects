@@ -1,7 +1,8 @@
 #include "firstSegment.h"
 #include "gamestate.h"
 #include "inputProcessing.h"
-#include "underConstruction.h"
+#include "leftPath.h"
+#include "rightPath.h"
 #include <iostream>
 #include <string>
 #include <array>
@@ -35,6 +36,17 @@ void nameSpren() {
         gamestate->setSprenName(name);
     }
 
+    culture();
+}
+
+void culture() {
+    string prompt = "Are you Alethi or a Listener?\n  1. Alethi\n  2. Listener";
+    int culture = input(2, prompt);
+    if (culture == 1) {
+        gamestate->setCulture("alethi");
+    } else {
+        gamestate->setCulture("listener");
+    }
     findPool();
 }
     
@@ -48,7 +60,7 @@ void findPool() {
     if (choice == 1) {
         investigatePool();
     } else {
-        advancePath();
+        toRockpile();
     }
 }
 
@@ -79,6 +91,9 @@ void toRockpile() {
     int choice = input(2, prompt);
     if (choice == 1) {
         cout << "The rock is very cool.\n";
+        if (gamestate->getCulture() == "listener") {
+            cout << gamestate->getSprenName() + " attunes the Rhythm of Appreciation.\n";
+        }
         gamestate->incrementRocks();
         collectMoreRocks();
     } else {
@@ -132,6 +147,9 @@ void findBoxing() {
 
 void acquireBoxing() {
     cout << "You inspect the object. It appears to be made of gold and has a picture of a building on one side.\n";
+    if (gamestate->getCulture() == "listener") {
+        cout << gamestate->getSprenName() + " attunes the Rhythm of Curiosity.\n";
+    }
     gamestate->takeBoxing();
 }
 
@@ -223,5 +241,16 @@ void tooManyRocks() {
 }
 
 void advancePath() {
-    underConstruction();
+    string prompt = "You continue along the path until it forks.\n";
+    prompt.append("On the left path, you see a frillbloom with tiny green lifespren dancing around it.\n");
+    prompt.append("On the right path, you see a trail of orange painspren reaching up from the ground.\n");
+    prompt.append("Which way do you go?\n");
+    prompt.append("  1. Take the left path\n");
+    prompt.append("  2. Take the right path\n");
+    int choice = input(2, prompt);
+    if (choice == 1) {
+        leftPath();
+    } else {
+        rightPath();
+    }
 }

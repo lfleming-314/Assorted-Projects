@@ -13,6 +13,7 @@ class GameState {
     array<string,2> surges;
     string spren_type;
     string spren_name;
+    string culture;
     int num_charges = 0;
     int num_rocks = 0;
     bool firemark = false;
@@ -25,6 +26,9 @@ class GameState {
     array<string, 2> getSurges();
     string getSprenType();
     void setSprenName(string name);
+    string getSprenName();
+    void setCulture(string culture);
+    string getCulture();
     int getNumCharges();
     void incrementCharges();
     void decrementCharges();

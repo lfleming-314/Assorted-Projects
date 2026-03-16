@@ -1,4 +1,5 @@
 void nameSpren();
+void culture();
 void findPool();
 void investigatePool();
 void collectFiremark();
