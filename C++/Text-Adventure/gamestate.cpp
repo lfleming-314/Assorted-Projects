@@ -3,10 +3,12 @@
 #include <array>
 using namespace std;
 
-GameState* GameState::instancePtr = new GameState();
+GameState* GameState::instancePtr = nullptr;
+GameState* gamestate = GameState::getInstance();
 
 GameState* GameState::getInstance() {
-    return GameState::instancePtr;
+    if (instancePtr == nullptr) instancePtr = new GameState();
+    return instancePtr;
 }
 
 void GameState::setOrder(string order, string surge1, string surge2, string spren_type) {

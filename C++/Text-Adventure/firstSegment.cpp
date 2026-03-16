@@ -8,10 +8,7 @@
 
 using namespace std;
 
-GameState* gamestate = GameState::getInstance();
-
 void nameSpren() {
-    GameState* gamestate = GameState::getInstance();
     array<string, 2> surges = gamestate->getSurges();
     cout << "Your surges are " + surges[0] + " and " + surges[1] + ".\n";
     cout << "You are bonded to a " + gamestate->getSprenType() + ".\n";
@@ -69,14 +66,12 @@ void investigatePool() {
 }
 
 void collectFiremark() {
-    GameState* gamestate = GameState::getInstance();
     gamestate->takeFiremark();
     cout << "You now have " + to_string(gamestate->getNumCharges()) + " charged spheres.\n";
     toRockpile();
 }
 
 void toRockpile() {
-    GameState* gamestate = GameState::getInstance();
     string prompt = "You continue along the path and find a pile of interesting rocks.\n";
     prompt.append("Do you take one?\n");
     prompt.append("  1. Take rock\n");
@@ -92,7 +87,6 @@ void toRockpile() {
 };
 
 void collectMoreRocks() {
-    GameState* gamestate = GameState::getInstance();
     if (gamestate->getNumRocks() >= 10) {
         tooManyRocks();
     } else if (gamestate->getNumRocks() > 7 && !gamestate->hasSkymark()) {
@@ -119,7 +113,6 @@ void collectMoreRocks() {
 }
 
 void findBoxing() {
-    GameState* gamestate = GameState::getInstance();
     string prompt = "You see a strange object among the rocks. It appears to be a small, flat metal circle.\n";
     prompt.append("  1. Take the strange object\n");
     prompt.append("  2. Take another rock instead\n");
@@ -138,13 +131,11 @@ void findBoxing() {
 }
 
 void acquireBoxing() {
-    GameState* gamestate = GameState::getInstance();
     cout << "You inspect the object. It appears to be made of gold and has a picture of a building on one side.\n";
     gamestate->takeBoxing();
 }
 
 void findSkymark() {
-    GameState* gamestate = GameState::getInstance();
     string prompt = "You uncover the blue glow of a skymark!\n";
     prompt.append("  1. Take the skymark\n");
     prompt.append("  2. Take another rock instead\n");
@@ -163,13 +154,11 @@ void findSkymark() {
 }
 
 void acquireSkymark() {
-    GameState* gamestate = GameState::getInstance();
     gamestate->takeSkymark();
     cout << "You now have " + to_string(gamestate->getNumCharges()) + " charged spheres.\n";
 }
 
 void findBoxingOrSkymark() {
-    GameState* gamestate = GameState::getInstance();
     string prompt = "You see a strange object among the rocks. It appears to be a small, flat metal circle.\n";
     prompt.append("You also see a skymark in the rock pile.\n");
     prompt.append("Which do you take?\n");
@@ -194,7 +183,6 @@ void findBoxingOrSkymark() {
 }
 
 void tooManyRocks() {
-    GameState* gamestate = GameState::getInstance();
     cout << "There are no more rocks in the pile.\n";
     if (!gamestate->hasBoxing() && !gamestate->hasSkymark()) {
         string prompt = "The strange object and the skymark are still there.\n";

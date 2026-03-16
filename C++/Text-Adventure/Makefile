@@ -1,6 +1,6 @@
 NAME		:= adventure
 SRCS		:= main.cpp gamestate.cpp firstSegment.cpp inputProcessing.cpp underConstruction.cpp 
-OBJS		:= main.o gamestate.o firstSegment.o inputProcessing.o underConstruction.o
+OBJS		:= $(SRCS:.cpp=.o)
 CXX			:= g++ -std=c++17
 CXXFLAGS	:= -Wall -Wextra -Werror
 CPPFLAGS	:= -I .
@@ -10,10 +10,10 @@ MAKEFLAGS	:= --no-print-directory
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CXX) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.c
-	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -c $< -o $@ 
 
 clean:
 	$(RM) $(OBJS)

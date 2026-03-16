@@ -7,8 +7,6 @@
 using namespace std;
 
 int main() {
-  
-GameState* gamestate = GameState::getInstance();
 
 string first_prompt = R"(Welcome to the text adventure! Press 0 to quit.
   
@@ -58,6 +56,7 @@ Which Radiant Order do you belong to?
       gamestate->setOrder("bondsmith", "tension", "adhesion", "unique spren");
       break;
   }
+
   nameSpren();  
   return 0;
 }
